@@ -1,0 +1,134 @@
+﻿<UserControl x:Class="psychotest.View.QuizView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:psychotest.View"
+             mc:Ignorable="d" d:DesignWidth="800" >
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="questsRowTemplate">
+            <Grid Margin="0,20,0,0" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="0">
+                    <Image Source ="{Binding Path = First.ShapeIconPath, Mode = OneWay}" Width="60"/>
+                    <TextBox Text = "{Binding Path = First.UserAnswer, Mode = TwoWay, UpdateSourceTrigger = PropertyChanged}" Width="15"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="1">
+                    <Image Source ="{Binding Path = Second.ShapeIconPath, Mode = OneWay}" Width="60"/>
+                    <TextBox Text = "{Binding Path = Second.UserAnswer, Mode = TwoWay, UpdateSourceTrigger = PropertyChanged}" Width="15"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="2">
+                    <Image Source ="{Binding Path = Third.ShapeIconPath, Mode = OneWay}" Width="60"/>
+                    <TextBox Text = "{Binding Path = Third.UserAnswer, Mode = TwoWay, UpdateSourceTrigger = PropertyChanged}" Width="15" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="3">
+                    <Image Source ="{Binding Path = Fourth.ShapeIconPath, Mode = OneWay}" Width="60"/>
+                    <TextBox Text = "{Binding Path = Fourth.UserAnswer, Mode = TwoWay, UpdateSourceTrigger = PropertyChanged}" Width="15" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="4">
+                    <Image Source ="{Binding Path = Fifth.ShapeIconPath, Mode = OneWay}" Width="60"/>
+                    <TextBox Text = "{Binding Path = Fifth.UserAnswer, Mode = TwoWay, UpdateSourceTrigger = PropertyChanged}" Width="15"  />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="exampleQuestsRowTemplate">
+            <Grid Margin="0,20,0,0" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="0" >
+                    <Image Source ="{Binding First.ShapeIconPath, Mode=OneWay}" Width="60"/>
+                    <TextBlock Text = "{Binding First.CorrectAnswer, Mode=OneWay}" Width="15" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="1">
+                    <Image Source ="{Binding Second.ShapeIconPath, Mode=OneWay}" Width="60"/>
+                    <TextBlock Text = "{Binding Second.CorrectAnswer, Mode=OneWay}" Width="15"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="2">
+                    <Image Source ="{Binding Third.ShapeIconPath, Mode=OneWay}" Width="60"/>
+                    <TextBlock Text = "{Binding Third.CorrectAnswer, Mode=OneWay}" Width="15"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="3">
+                    <Image Source ="{Binding Fourth.ShapeIconPath, Mode=OneWay}" Width="60"/>
+                    <TextBlock Text = "{Binding Fourth.CorrectAnswer, Mode=OneWay}" Width="15"  />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Height="80" Width="60" Grid.Column="4">
+                    <Image Source ="{Binding Fifth.ShapeIconPath, Mode=OneWay}" Width="60"/>
+                    <TextBlock Text = "{Binding Fifth.CorrectAnswer, Mode=OneWay}" Width="15"  />
+                </StackPanel>
+
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <DockPanel Margin="15,15,15,15" >
+
+
+        <StackPanel DockPanel.Dock="Top">
+            <!-- Instruction-->
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Top" Height="51" Margin="115,0,134,0" Width="521"><Run FontSize="18" Text="Instrukcja rozwiązywania zadań"/><LineBreak/><Run FontSize="16" FontStyle="Italic" Foreground="Green" Text="Upewnij się, że wypełniłeś wszystkie pola!"/></TextBlock>
+
+            <!-- Example Quests -->
+            <Border Background="White" BorderBrush="Silver" BorderThickness="1" CornerRadius="8,8,3,3" Margin="0,20,0,0">
+                <ItemsControl  ItemsSource = "{Binding ExampleQuests, Mode=OneWay}" 
+                                  ItemTemplate="{StaticResource exampleQuestsRowTemplate}" >
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Grid.IsSharedSizeScope="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                </ItemsControl>
+            </Border>
+            <!-- AllQuests -->
+
+
+
+        </StackPanel>
+
+        <DockPanel VerticalAlignment="Top">
+            <ScrollViewer  CanContentScroll="True" Margin="0,20,0,0"  Height="600">
+                <ItemsControl  ItemsSource = "{Binding GroupedQuests, Mode=OneWay}" Background="#FFE2DEDE"
+                                ItemTemplate="{StaticResource questsRowTemplate}" Name="itemsControl"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Visible" >
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Grid.IsSharedSizeScope="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
+        <!-- UserInfo3-->
+
+    </DockPanel>
+
+</UserControl>

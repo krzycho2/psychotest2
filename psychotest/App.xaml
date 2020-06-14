@@ -1,0 +1,22 @@
+﻿<Application x:Class="psychotest.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:psychotest"
+             xmlns:viewmodel="clr-namespace:psychotest.ViewModel"
+             xmlns:view="clr-namespace:psychotest.View"
+            >
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:HelloViewModel}">
+            <view:HelloView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:QuizViewModel}">
+            <view:QuizView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:SummaryViewModel}">
+            <view:SummaryView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:SurveyViewModel}">
+            <view:SurveyView />
+        </DataTemplate>
+    </Application.Resources>
+</Application>

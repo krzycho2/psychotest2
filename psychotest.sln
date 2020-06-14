@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psychotest", "psychotest\psychotest.csproj", "{F6C4ADB6-98EA-4D42-8CB0-D17AAC753AE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "psychotestTests", "psychotestTests\psychotestTests.csproj", "{F105E18B-E58F-45AC-B883-1A8828894D69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6C4ADB6-98EA-4D42-8CB0-D17AAC753AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C4ADB6-98EA-4D42-8CB0-D17AAC753AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C4ADB6-98EA-4D42-8CB0-D17AAC753AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C4ADB6-98EA-4D42-8CB0-D17AAC753AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F105E18B-E58F-45AC-B883-1A8828894D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F105E18B-E58F-45AC-B883-1A8828894D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F105E18B-E58F-45AC-B883-1A8828894D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F105E18B-E58F-45AC-B883-1A8828894D69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBBE8970-2B73-4E26-853F-F9F5645CDFA5}
+	EndGlobalSection
+EndGlobal
